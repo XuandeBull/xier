@@ -17,6 +17,7 @@
         <module>xier-product</module>
         <module>xier-ware</module>
         <module>renren-security</module>
+        <module>xier-common</module>
     </modules>
 
 </project>
