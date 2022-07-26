@@ -7,7 +7,7 @@ import lombok.Data;
  * sku销售属性&值
  *
  * @author XuandeBull XuandeBull@gmail.com
- * @since 1.0.0 2022-07-20
+ * @since 1.0.0 2022-07-26
  */
 @Data
 public class SkuSaleAttrValueExcel {

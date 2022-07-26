@@ -15,7 +15,7 @@ import java.util.Map;
  * 商品评价
  *
  * @author XuandeBull XuandeBull@gmail.com
- * @since 1.0.0 2022-07-20
+ * @since 1.0.0 2022-07-26
  */
 @Service
 public class SpuCommentServiceImpl extends CrudServiceImpl<SpuCommentDao, SpuCommentEntity, SpuCommentDTO> implements SpuCommentService {

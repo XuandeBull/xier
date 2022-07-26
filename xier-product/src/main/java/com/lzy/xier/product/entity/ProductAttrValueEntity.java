@@ -1,22 +1,22 @@
 package com.lzy.xier.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.lzy.xier.common.entity.BaseEntity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * spu属性值
  *
  * @author XuandeBull XuandeBull@gmail.com
- * @since 1.0.0 2022-07-20
+ * @since 1.0.0 2022-07-26
  */
 @Data
-@EqualsAndHashCode(callSuper=false)
 @TableName("pms_product_attr_value")
-public class ProductAttrValueEntity extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+public class ProductAttrValueEntity {
 
+    /**
+     * id
+     */
+	private Long id;
     /**
      * 商品id
      */

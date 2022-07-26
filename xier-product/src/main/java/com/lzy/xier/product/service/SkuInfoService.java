@@ -8,7 +8,7 @@ import com.lzy.xier.product.entity.SkuInfoEntity;
  * sku信息
  *
  * @author XuandeBull XuandeBull@gmail.com
- * @since 1.0.0 2022-07-20
+ * @since 1.0.0 2022-07-26
  */
 public interface SkuInfoService extends CrudService<SkuInfoEntity, SkuInfoDTO> {
 

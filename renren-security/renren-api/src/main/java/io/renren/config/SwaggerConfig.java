@@ -8,7 +8,9 @@
 
 package io.renren.config;
 
+import com.github.xiaoymin.knife4j.spring.extension.OpenApiExtensionResolver;
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -18,15 +20,18 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.ApiKey;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 
 @Configuration
-@EnableSwagger2
-public class SwaggerConfig {
+@EnableSwagger2WebMvc
+@AllArgsConstructor
+public class SwaggerConfig{
+    private final OpenApiExtensionResolver openApiExtensionResolver;
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -38,6 +43,7 @@ public class SwaggerConfig {
             //.apis(RequestHandlerSelectors.basePackage("io.renren.controller"))
             .paths(PathSelectors.any())
             .build()
+            .extensions(openApiExtensionResolver.buildExtensions("Renren"))
             .directModelSubstitute(java.util.Date.class, String.class)
             .securitySchemes(security());
     }
@@ -47,13 +53,13 @@ public class SwaggerConfig {
             .title("人人开源")
             .description("renren-api模块接口文档")
             .termsOfServiceUrl("https://www.renren.io")
-            .version("2.0")
+            .version("5.x")
             .build();
     }
 
     private List<ApiKey> security() {
         return newArrayList(
-            new ApiKey("token", "token", "header")
+                new ApiKey("token", "token", "header")
         );
     }
 

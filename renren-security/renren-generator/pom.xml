@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.renren</groupId>
 	<artifactId>renren-generator</artifactId>
@@ -20,7 +20,7 @@
 		<java.version>1.8</java.version>
 		<mybatis.spring.boot.version>2.2.2</mybatis.spring.boot.version>
 		<pagehelper.spring.boot.version>1.4.2</pagehelper.spring.boot.version>
-		<druid.version>1.2.9</druid.version>
+		<druid.version>1.2.11</druid.version>
 		<commons.lang.version>2.6</commons.lang.version>
 		<commons.io.version>2.11.0</commons.io.version>
 		<commons.configuration.version>1.10</commons.configuration.version>
@@ -78,6 +78,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+
 		</dependency>
 		<!-- oracle驱动 -->
 		<dependency>

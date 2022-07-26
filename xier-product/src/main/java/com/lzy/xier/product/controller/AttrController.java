@@ -31,7 +31,7 @@ import java.util.Map;
  * 商品属性
  *
  * @author XuandeBull XuandeBull@gmail.com
- * @since 1.0.0 2022-07-20
+ * @since 1.0.0 2022-07-26
  */
 @RestController
 @RequestMapping("product/attr")

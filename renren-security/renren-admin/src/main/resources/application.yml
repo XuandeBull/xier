@@ -12,6 +12,15 @@ server:
       cookie:
         http-only: true
 
+knife4j:
+  enable: true
+  basic:
+    enable: false
+    username: admin
+    password: admin
+  setting:
+    enableFooter: false
+
 spring:
   # 环境 dev|test|prod
   profiles:

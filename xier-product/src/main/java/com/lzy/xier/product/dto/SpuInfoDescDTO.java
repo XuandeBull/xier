@@ -11,7 +11,7 @@ import java.io.Serializable;
  * spu信息介绍
  *
  * @author XuandeBull XuandeBull@gmail.com
- * @since 1.0.0 2022-07-20
+ * @since 1.0.0 2022-07-26
  */
 @Data
 @ApiModel(value = "spu信息介绍")
