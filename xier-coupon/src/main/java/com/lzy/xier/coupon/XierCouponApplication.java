@@ -1,4 +1,4 @@
-package com.example.coupon;
+package com.lzy.xier.coupon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
