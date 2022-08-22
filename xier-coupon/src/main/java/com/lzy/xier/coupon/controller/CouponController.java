@@ -4,6 +4,7 @@ import com.lzy.xier.common.annotation.LogOperation;
 import com.lzy.xier.common.constant.Constant;
 import com.lzy.xier.common.page.PageData;
 import com.lzy.xier.common.utils.ExcelUtils;
+import com.lzy.xier.common.utils.R;
 import com.lzy.xier.common.utils.Result;
 import com.lzy.xier.common.validator.AssertUtils;
 import com.lzy.xier.common.validator.ValidatorUtils;
@@ -11,6 +12,7 @@ import com.lzy.xier.common.validator.group.AddGroup;
 import com.lzy.xier.common.validator.group.DefaultGroup;
 import com.lzy.xier.common.validator.group.UpdateGroup;
 import com.lzy.xier.coupon.dto.CouponDTO;
+import com.lzy.xier.coupon.entity.CouponEntity;
 import com.lzy.xier.coupon.excel.CouponExcel;
 import com.lzy.xier.coupon.service.CouponService;
 import io.swagger.annotations.Api;
@@ -19,10 +21,13 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -33,12 +38,32 @@ import java.util.Map;
  * @author XuandeBull XuandeBull@gmail.com
  * @since 1.0.0 2022-07-27
  */
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 @Api(tags="优惠券信息")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${coupon.user.name}")//从application.properties中获取//不要写user.name，他是环境里的变量
+    private String name;
+    @Value("${coupon.user.age}")
+    private Integer age;
+
+    @RequestMapping("/test")
+    public R test(){
+        return R.ok().put("name",name).put("age",age);
+    }
+
+
+    @RequestMapping("/member/list")
+    public R membercoupons(){
+        CouponEntity couponEntity=new CouponEntity();
+             couponEntity.setCouponName("满100减15");
+        return R.ok().put("coupon",Arrays.asList(couponEntity));
+    }
+
 
     @GetMapping("page")
     @ApiOperation("分页")

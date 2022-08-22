@@ -4,6 +4,7 @@ import com.lzy.xier.common.annotation.LogOperation;
 import com.lzy.xier.common.constant.Constant;
 import com.lzy.xier.common.page.PageData;
 import com.lzy.xier.common.utils.ExcelUtils;
+import com.lzy.xier.common.utils.R;
 import com.lzy.xier.common.utils.Result;
 import com.lzy.xier.common.validator.AssertUtils;
 import com.lzy.xier.common.validator.ValidatorUtils;
@@ -11,7 +12,9 @@ import com.lzy.xier.common.validator.group.AddGroup;
 import com.lzy.xier.common.validator.group.DefaultGroup;
 import com.lzy.xier.common.validator.group.UpdateGroup;
 import com.lzy.xier.member.dto.MemberDTO;
+import com.lzy.xier.member.entity.MemberEntity;
 import com.lzy.xier.member.excel.MemberExcel;
+import com.lzy.xier.member.feign.CouponFeignService;
 import com.lzy.xier.member.service.MemberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -39,6 +42,18 @@ import java.util.Map;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    CouponFeignService couponFeignService;
+
+    @RequestMapping("/coupons")
+    public R test(){
+        MemberEntity memberEntity =new MemberEntity();
+        memberEntity.setNickname("张三");
+         R membercoupons = couponFeignService.membercoupons();
+        return R.ok().put("member",memberEntity).put("coupons",membercoupons.get("coupon"));
+    }
+
 
     @GetMapping("page")
     @ApiOperation("分页")
